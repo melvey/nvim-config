@@ -56,6 +56,10 @@ opt.undofile = true
 opt.hlsearch = false
 opt.incsearch = true
 
+-- search case
+opt.ignorecase = true
+opt.smartcase = true
+
 -- colours
 opt.termguicolors = true
 

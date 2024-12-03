@@ -11,6 +11,7 @@ local M = {
 	lsp_servers = {
 		{
 			lsp_name = "clangd",
+			--root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git", "CMakeLists.txt"),
 			lsp_settings = {
 				cmd = {
 					"clangd",
