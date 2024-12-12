@@ -33,8 +33,8 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("lsp_handlers")
 
 vim.api.nvim_set_keymap(
-    "n",
-    "<leader>tf",
-    '<cmd>lua require("telescope.builtin").lsp_actions()<CR>',
-    { noremap = true, silent = true }
+	"n",
+	"<leader>tf",
+	'<cmd>lua require("telescope.builtin").lsp_actions()<CR>',
+	{ noremap = true, silent = true }
 )
