@@ -23,6 +23,36 @@ local M = {
 			},
 		},
 	},
+	dap = {
+		adapters = {
+			gdb = {
+				type = "executable",
+				command = "gdb",
+				args = { "--quiet", "--interpreter=dap" },
+			},
+		},
+		configurations = {
+			cpp = {
+				{
+					name = "Launch Program",
+					type = "gdb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = true,
+					setupCommands = {
+						{
+							text = "-enable-pretty-printing",
+							description = "Enable GDB pretty printing",
+							ignoreFailures = true,
+						},
+					},
+				},
+			},
+		},
+	},
 }
 
 return M

@@ -193,6 +193,21 @@ local plugins = {
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
+
+	-- Core DAP plugin
+	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("core.configs.dap")
+		end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap" },
+		config = function()
+			require("dapui").setup()
+		end,
+	},
 }
 
 if config.feature_config.use_scrollbars then
