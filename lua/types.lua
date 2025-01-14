@@ -28,6 +28,8 @@
 ---@field linters string[] An array of linter names (strings)
 ---@field lsp_servers LspServerDefinition[] An array of LspServerDefinitions
 ---@field extra_mason? string[] An array of extra tools to install with mason
+---@field mason_skip_linters boolean | nil If truthy, mason will not install linters
+---@field mason_skip_formatters boolean | nil If truthy, mason will not install formatters
 
 ---@class NvimLanguageConfig
 ---@field enabled_langs BuiltinLangs[] The list of enabled languages

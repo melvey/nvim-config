@@ -3,10 +3,18 @@ local M = {
 	lang_name = "cpp",
 
 	formatters = {
+		"clangformat",
+	},
+	mason_skip_formatters = true,
+
+	linters = {
+		"clangtidy",
+	},
+	mason_skip_linters = true,
+
+	extra_mason = {
 		"clang-format",
 	},
-
-	linters = {},
 
 	lsp_servers = {
 		{
@@ -18,6 +26,7 @@ local M = {
 					"--offset-encoding=utf-16",
 					"--completion-style=detailed",
 					"--suggest-missing-includes",
+					"--fallback-style",
 				},
 				capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			},

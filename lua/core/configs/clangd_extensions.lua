@@ -6,6 +6,7 @@ local clangd_ext = require("clangd_extensions")
 lspconfig.clangd.setup({
 	cmd = { "clangd", "--offset-encoding=utf-16" }, -- Explicitly set utf-16 encoding
 	on_attach = function(client, bufnr)
+		client.server_capabilities.documentFormattingProvider = false
 		vim.notify("LSP attached to buffer " .. bufnr, vim.log.levels.INFO)
 
 		-- Set up keybinding to switch between source and header files

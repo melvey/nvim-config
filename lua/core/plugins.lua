@@ -201,13 +201,31 @@ local plugins = {
 			require("core.configs.dap")
 		end,
 	},
+    { "nvim-neotest/nvim-nio" },
 	{
 		"rcarriga/nvim-dap-ui",
-		requires = { "mfussenegger/nvim-dap" },
+		requires = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
 		config = function()
 			require("dapui").setup()
 		end,
 	},
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        dependencies = { "mfussenegger/nvim-dap" },
+        config = function()
+            require("nvim-dap-virtual-text").setup({
+                enabled = true,           -- enable this plugin
+                enabled_commands = true,  -- create commands
+                highlight_changed_variables = true, -- highlight only changed variables
+                highlight_new_as_changed = true,    -- highlight new variables
+                show_stop_reason = true,  -- show reason for stopping
+                commented = false,        -- prefix virtual text with comment string
+            })
+        end,
+    }
 }
 
 if config.feature_config.use_scrollbars then
